@@ -1,8 +1,12 @@
 import React, {useEffect, useState, useRef} from 'react'
+import Aos from 'aos';
+import "aos/dist/aos.css";
 import styled from 'styled-components'
+import bg from '../images/woodbg.jpg';
 
 const TestimonialWrapper = styled.div`
-    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    background: url(${bg}) #5a280b52  no-repeat;/*linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); */
+    background-attachment: fixed;
     height: 100vh;
     width: 100%;
     position: relative;
@@ -21,6 +25,7 @@ const TestimonialContainer = styled.div`
     position: absolute;
     top: 40%;
     left: 50%;
+    transition: all 1s;
     transform: translate(-50%, -50%);
 
     .testimonial {
@@ -31,6 +36,7 @@ const TestimonialContainer = styled.div`
 const Indicator = styled.div`
     position: absolute;
     left: 50%;
+    transition: all 1s;
     transform: translateX(-50%);
     bottom: -100px;
 `
@@ -48,7 +54,7 @@ const SlideCol = styled.div`
 `
 
 const TextContent = styled.div`
-    background: #2d3a59;
+    background: #5a280b52;
     width: 520px;
     height: 170px;
     position: absolute;
@@ -124,11 +130,15 @@ function Testimonial({testimonial}) {
      const timeout = useRef(null);
 
      useEffect(() => {
+        Aos.init({duration: 3000})
+    }, [])
+
+     useEffect(() => {
             const nextSlide = () => {
                 setCurrent(current => (current === length -1 ? 0 : current+1))
             }
 
-            timeout.current = setTimeout(nextSlide, 2000);
+            timeout.current = setTimeout(nextSlide, 1000);
 
             return function(){
                 if(timeout.current){
@@ -162,13 +172,13 @@ function Testimonial({testimonial}) {
                 <Indicator>
                 {
                   testimonial.map((_, index) => {
-                   return (<Span key={index} background={`${index===current?  "#0D6CDA": "#656869"}`}  
+                   return (<Span key={index} background={`${index===current?  "#aaa364": "#656869"}`}  
                    active={`${index===current?  "45px": "15px"}` }></Span>)
                   })  
                 }
                 </Indicator>
                 <div className="testimonials">
-                    <SlideRow>
+                    <SlideRow data-aos="fade-up">
                         {loadTestimonial}
                     </SlideRow>
                 </div>

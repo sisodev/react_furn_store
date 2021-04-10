@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import Aos from 'aos';
+import "aos/dist/aos.css";
 import styled from 'styled-components'
 import location from '../images/icons/location.png';
 import mail from '../images/icons/mail.png';
@@ -8,6 +10,7 @@ import two from '../images/icons/2.png';
 import three from '../images/icons/3.png';
 import four from '../images/icons/4.png';
 import five from '../images/icons/5.png';
+import bg from '../images/woodbg.jpg';
 
 
 const ContactSection = styled.section`
@@ -15,7 +18,10 @@ const ContactSection = styled.section`
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    background: url(${bg}) #5a280b52  no-repeat;
+    background-attachment: fixed;
+    /* background: #5a280b52; */
+    /* background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); */
 
     &::before {
         content: '';
@@ -24,12 +30,12 @@ const ContactSection = styled.section`
         left: 0;
         width: 50%;
         height: 100%;
-        background: #fff38e;
+        background: transparent;
     }
 
     @media (max-width: 991px){
         section {
-            background: #fff38e;
+            background: #5a280b52;
         }
         section::before{
             display: none;
@@ -43,7 +49,7 @@ const ContactContainer  = styled.div`
     min-width: 1100px;
     min-height: 550px;
     display:flex;
-    z-index: 1000;
+    z-index: 2;
 
     @media (max-width: 1200px) {
         width: 90%;
@@ -287,9 +293,14 @@ const ContactFormBox = styled.div`
  
 
 function Contact() {
+   
+    useEffect(() => {
+        Aos.init({duration: 3000})
+    }, [])
+
     return (
         <ContactSection>
-            <ContactContainer>
+            <ContactContainer data-aos="fade-right" data-aos-duration="1200">
                 <ContactInfo>
                     <ContactInfoContent>
                         <h2>Contact Info</h2>

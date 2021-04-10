@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 export const Button  = styled(Link)`
-    background: ${({primary}) => (primary ? '#2582df': '#D9B619')};
+    background: ${({primary}) => (primary ? '#aaa364': '#D9B619')};
     white-space: nowrap;
     outline: none;
     border: none;

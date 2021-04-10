@@ -6,9 +6,10 @@ import Navbar from './components/Navbar';
 import { sliderData } from './data/SliderData';
 import { infoData } from './data/InfoData';
 import GlobalStyle from './globalStyle';
-import Testimonial from './components/Testimonial';
+// import Testimonial from './components/Testimonial';
 import { testimonialData } from './data/testimonialData';
 import Contact from './components/Contact';
+import SimpleTestimonial from './components/SimpleTestimonial';
 
 function App() {
 
@@ -27,7 +28,8 @@ function App() {
         <Dropdown isOpen={isOpen} toggle={toggle}/>
         <Hero slides={sliderData}/>
         <InfoSection infoData={infoData}/>
-        <Testimonial testimonial={testimonialData}/>
+        {/* <Testimonial testimonial={testimonialData}/> */}
+        <SimpleTestimonial  testimonial={testimonialData}/> 
         <Contact/>
     </>
   );

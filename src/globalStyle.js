@@ -9,8 +9,9 @@ const GlobalStyle = createGlobalStyle`
     }
 
     html, body{
+        scroll-behavior: smooth;
         overflow-x: hidden;
-
+        background-color: #5a280b52;
     }
 `;
 

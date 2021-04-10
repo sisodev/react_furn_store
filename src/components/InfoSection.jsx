@@ -3,13 +3,15 @@ import Aos from 'aos';
 import "aos/dist/aos.css";
 import styled from 'styled-components'
 import { Button } from './Button'
+import bg from '../images/woodbg.jpg';
 
 const Section = styled.section`
     width: 100%;
     height: 100%;
     padding: 4rem 0rem;
     overflow: hidden;
-    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    background: url(${bg}) #5a280b52  no-repeat;
+    background-attachment: fixed;
 `
 const Container = styled.div`
     padding: 3rem (calc(100vw - 1300px)/2);
@@ -81,7 +83,7 @@ function InfoSection({infoData}) {
                 <p>{paragraphTwo}</p>
                 <Button to="/homes" primary={true}>{buttonLabel}</Button>
             </ColumnLeft>
-            <ColumnRight  data-aos={`${index%2===0? "fade-left": "flip-left"}`} reverse={reverse}>
+            <ColumnRight  data-aos={`${index%2===0? "fade-left": "flip-right"}`} reverse={reverse}>
                 <img src={image} alt="home" />
             </ColumnRight>
         </Container>

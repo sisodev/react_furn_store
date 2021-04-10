@@ -1,4 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
+import Aos from 'aos';
+import "aos/dist/aos.css";
 import {Button} from './Button';
 import styled, {css} from 'styled-components/macro'
 import {IoMdArrowRoundForward} from 'react-icons/io'
@@ -10,6 +12,7 @@ const HeroSection = styled.section`
     max-height: 1100px;
     position: relative;
     overflow: hidden;
+    background: transparent;
 `;
 
 const HeroWrapper = styled.div`
@@ -84,11 +87,7 @@ const HeroSlider = styled.div`
         left: 0;
         overflow: hidden;
         opacity: 0.4;
-        background: linear-gradient(0deg,
-             rgba(0,0,0,0.2) 0%, 
-             rgba(0,0,0,0.2) 50%, 
-             rgba(0,0,0,0.6) 100% 
-             )
+        background:transparent;
     }
 `;
 
@@ -137,6 +136,11 @@ function Hero({slides}) {
      const timeout = useRef(null);
 
      useEffect(() => {
+        Aos.init({duration: 3000})
+    }, [])
+
+
+     useEffect(() => {
 
         const nextSlide = () => {
             setCurrent(current => (current === length -1 ? 0 : current+1))
@@ -180,7 +184,8 @@ function Hero({slides}) {
                             <HeroSlide key={index}>
                                 {index === current && (
                                     <HeroSlider>
-                                    <HeroImage src={slide.image} alt={slide.alt}/>
+                                    <HeroImage data-aos="fade-left" data-aos-offset="100"
+     data-aos-duration="1000" src={slide.image} alt={slide.alt}/>
                                     <HeroContent>
                                         <h1>{slide.title}</h1>
                                         {/* <p>{slide.price}</p> */}
