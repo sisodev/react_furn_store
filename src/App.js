@@ -1,36 +1,36 @@
-import React, {useState} from 'react';
-import Dropdown from './components/Dropdown';
-import Hero from './components/Hero';
-import InfoSection from './components/InfoSection';
-import Navbar from './components/Navbar';
-import { sliderData } from './data/SliderData';
-import { infoData } from './data/InfoData';
+import React, {useState}  from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import GlobalStyle from './globalStyle';
-// import Testimonial from './components/Testimonial';
-import { testimonialData } from './data/testimonialData';
-import Contact from './components/Contact';
-import SimpleTestimonial from './components/SimpleTestimonial';
+import Navbar from './components/Navbar';
+import Dropdown from './components/Dropdown';
+import Home from './pages/Home';
+import Products from './pages/Products';
 
 function App() {
 
   const [isOpen, setIsOpen] = useState(false)
 
   const toggle = () => {
-    setIsOpen(!isOpen)
+      setIsOpen(!isOpen)
   }
-
-  
 
   return (
     <>
       <GlobalStyle/>
-        <Navbar toggle={toggle}/>
-        <Dropdown isOpen={isOpen} toggle={toggle}/>
-        <Hero slides={sliderData}/>
-        <InfoSection infoData={infoData}/>
-        {/* <Testimonial testimonial={testimonialData}/> */}
-        <SimpleTestimonial  testimonial={testimonialData}/> 
-        <Contact/>
+      <Router>
+      <Navbar toggle={toggle}/>
+      <Dropdown isOpen={isOpen} toggle={toggle}/>
+      
+        <Switch>
+        <Route exact path="/">
+            <Home/>
+        </Route>
+        <Route path="/products">
+            <Products/>
+        </Route>
+        
+        </Switch>
+      </Router>
     </>
   );
 }

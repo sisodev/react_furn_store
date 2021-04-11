@@ -3,7 +3,7 @@ import { FaTimes } from 'react-icons/fa'
 import styled from 'styled-components'
 import { menuData } from '../data/MenuData'
 import { Button } from './Button'
-import {Link} from 'react-router-dom'
+ import {Link} from 'react-router-dom'
 
 
 const DropdownContainer = styled.div`
@@ -48,7 +48,7 @@ const DropdownMenu = styled.div`
         grid-template-rows: repeat(4, 60px);
     }
 `
-const DropdownLink = styled.div`
+const DropdownLink = styled(Link)`
         display: flex;
         align-items: center;
         justify-content: center;
@@ -82,7 +82,7 @@ function Dropdown({isOpen, toggle}) {
                     ))}
                 </DropdownMenu>
                 <BtnWrap>
-                    <Button primary={true} round={true} big={true} to="/contact">
+                    <Button primary={"true"} round={"true"} big={"true"} to="/contact">
                         Contact
                     </Button>
                 </BtnWrap>

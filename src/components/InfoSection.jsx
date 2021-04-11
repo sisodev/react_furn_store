@@ -75,23 +75,24 @@ function InfoSection({infoData}) {
 
 
     const data = infoData.map(({heading, paragraphOne, paragraphTwo, buttonLabel, image, reverse, delay}, index) => (
-        <Section>
-        <Container >
+        
+        <Container key={index}>
             <ColumnLeft data-aos="fade-up">
                 <h1>{heading}</h1>
                 <p>{paragraphOne}</p>
                 <p>{paragraphTwo}</p>
-                <Button to="/homes" primary={true}>{buttonLabel}</Button>
+                <Button to="/homes" primary={"true"}>{buttonLabel}</Button>
             </ColumnLeft>
             <ColumnRight  data-aos={`${index%2===0? "fade-left": "flip-right"}`} reverse={reverse}>
                 <img src={image} alt="home" />
             </ColumnRight>
         </Container>
-    </Section>
     ))
     return (
         <>
-        {data}
+         <Section>
+            {data}
+        </Section>
         </>    
     )
 }

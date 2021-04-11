@@ -75,8 +75,10 @@ const TestimonialContent = styled.div`
         padding: 5px;
 
         h2 {
-            text-align: justify;
-            left: 10px;
+            text-align: center;
+            margin-left: 0px !important;
+            transform: translate(42px, 0px);
+            left: 0px;
             padding: 5px;
             margin-left: 100px;
         }
@@ -170,7 +172,7 @@ function SimpleTestimonial({testimonial}) {
                setCurrent(current => (current === length -1 ? 0 : current+1))
            }
 
-           timeout.current = setTimeout(nextSlide, 300000);
+           timeout.current = setTimeout(nextSlide, 3000);
 
            return function(){
                if(timeout.current){

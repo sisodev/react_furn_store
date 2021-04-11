@@ -14,6 +14,6 @@ export const testimonialData = [{
     image: imageTwo
 },{
     name: "Snigdha",
-    comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eligendi ab, officia, repudiandae reiciendis magni magnam itaque ducimus consectetur quisquam dolorum in quidem odit sed libero exercitationem, inventore beatae! A quam ratione, itaque laborum aspernatur sed debitis quis facilis odit ducimus repudiandae alias dicta autem. Nemo id tempora iure, ratione illo aliquam amet corrupti rerum enim officia sunt laboriosam! Quasi impedit, et ducimus nam aliquam laborum quo alias porro veritatis dolores sequi dicta provident a? Unde at accusantium, cum ut est repellat cumque velit, facilis doloremque ipsa nemo veniam voluptatem commodi, blanditiis exercitationem sint odio quasi corrupti deserunt magnam voluptates.",
+    comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis eligendi ab, officia, repudiandae reiciendis magni magnam itaque ducimus consectetur quisquam dolorum in quidem odit sed libero exercitationem, inventore beatae! A quam ratione, itaque laborum aspernatur sed debitis quis facilis odit ducimus repudiandae alias dicta autem. Nemo id tempora iure, ratione illo aliquam amet corrupti rerum enim officia sunt laboriosam! Quasi impedit, et ducimus nam aliquam laborum quo alias porro veritatis dolores sequi dicta provident a? Unde at accusantium, cum ut est repellat cumque velit, facilis doloremque ipsa.",
     image: imageTwo
 }]
