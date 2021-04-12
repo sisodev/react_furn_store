@@ -1,7 +1,9 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState } from 'react'
 import Aos from 'aos';
 import "aos/dist/aos.css";
 import styled from 'styled-components'
+import {useForm} from '../utils/useForm';
+import firebase from '../firebase';
 import location from '../images/icons/location.png';
 import mail from '../images/icons/mail.png';
 import call from '../images/icons/call.png';
@@ -210,7 +212,7 @@ const ContactFormContent = styled.div`
     }
 `
 
-const ContactFormBox = styled.div`
+const ContactFormBox = styled.form`
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -293,13 +295,34 @@ const ContactFormBox = styled.div`
  
 
 function Contact() {
+
+    const [values, handleChange] = useForm({fname:'', lname:'', email:'', mobile:'', message: ''})
+
+    const [sent, setSent] = useState("false")
    
     useEffect(() => {
         Aos.init({duration: 3000})
     }, [])
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const db = firebase.firestore();
+        db.settings({
+            timestampsInSnapshots: true
+        })
+        db.collection("userdata").add(values)
+       // handleChange({fname:'', lname:'', email:'', mobile:'', message: ''})
+       setSent("true");
+       setTimeout(() => setSent("false"), 1000)
+    }
+
+
     return (
         <ContactSection>
+            {/* <div style={{visibility : `${sent==="true"?  "visible": "hidden"}`}}>
+                <h1>Your Message is Sent!!</h1>
+            </div> */}
+            
             <ContactContainer data-aos="fade-right" data-aos-duration="1200">
                 <ContactInfo>
                     <ContactInfoContent>
@@ -330,29 +353,29 @@ function Contact() {
                 <ContactForm>
                     <ContactFormContent>
                         <h2>Send a Message</h2>
-                        <ContactFormBox>
+                        <ContactFormBox  onSubmit={handleSubmit}>
                             <div className="inputBox w50">
-                                <input type="text" required/>
+                                <input type="text"  value={values.fname} onChange={handleChange} name="fname" required/>
                                 <span>First Name</span>
                             </div>
                             <div className="inputBox w50">
-                                <input type="text" required/>
+                                <input type="text" value={values.lname} onChange={handleChange} name="lname" required/>
                                 <span>Last Name</span>
                             </div>
                             <div className="inputBox w50">
-                                <input type="email" required/>
+                                <input type="email" value={values.email} onChange={handleChange} name="email" required/>
                                 <span>Email Address</span>
                             </div>
                             <div className="inputBox w50">
-                                <input type="email" required/>
+                                <input type="text" value={values.mobile} onChange={handleChange} name="mobile" required/>
                                 <span>Mobile Number</span>
                             </div>
                             <div className="inputBox w100">
-                                <textarea required/>
+                                <textarea name="message" onChange={handleChange} value={values.message} required/>
                                 <span>write your message here...</span>
                             </div>
                             <div className="inputBox w100">
-                                <input type="submit" value="Send"/>
+                                <input type="submit"  value="Send"/>
                             </div>
                         </ContactFormBox>
                     </ContactFormContent>

@@ -1,11 +1,17 @@
 import React from 'react'
-import OurProducts from '../components/OurProducts'
+import ProductHeader from '../components/ProductHeader'
+import ProductList from '../components/ProductList'
 import { productData } from '../data/productData'
+
+
+
+
 
 function Products() {
     return (
         <>
-            <OurProducts productData={productData}/>
+            <ProductHeader/>
+            <ProductList productData={productData}/>
         </>
     )
 }
