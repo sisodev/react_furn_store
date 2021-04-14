@@ -299,6 +299,7 @@ function Contact() {
     const [values, handleChange] = useForm({fname:'', lname:'', email:'', mobile:'', message: ''})
 
     const [sent, setSent] = useState("false")
+     console.log(sent)
    
     useEffect(() => {
         Aos.init({duration: 3000})
