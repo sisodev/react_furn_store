@@ -1,7 +1,5 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components'
-import Aos from 'aos';
-import "aos/dist/aos.css";
 
 
 const ProductListWrapper = styled.div`
@@ -121,13 +119,11 @@ const ProductContentBox = styled.div`
 
 function ProductList({productData}) {
 
-    useEffect(() => {
-        Aos.init({duration: 1000})
-    }, [])
+    
 
     const loadProduct = productData.map(({name, image, description}, index)=>(
-
-        <ProductCard key={index} data-aos="zoom-in">
+        
+        <ProductCard key={index} >
                     <ProductBox >
                         <ProductImgBx>
                             <img src={image} alt="totally"/>
@@ -143,7 +139,7 @@ function ProductList({productData}) {
     ))
 
     return (
-        <ProductListWrapper data-aos="fade-up">
+        <ProductListWrapper>
             <h1>Our Products</h1>
             <ProductListSection>
                     {loadProduct}

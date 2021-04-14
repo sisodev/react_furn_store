@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import bg from '../images/testimonialbg.jpg'
 // import Slider from "react-slick";
 
 
@@ -9,7 +10,8 @@ const BrandsWrapper = styled.div`
     height: 100vh;
     display: grid;
     place-items: center;
-    background: #f5f5f5;
+    background: url(${bg}) #5a280b52  no-repeat;
+    background-position: center;
 `
 
 
